@@ -1,8 +1,8 @@
 const bpmInput = document.querySelector("#bpm-input");
 const bpmSelect = document.getElementById("bpm-select");
-const metronome = document.getElementById("metronome");
-
 const toggleMetronomeButton = document.querySelector("#start-metronome");
+
+const metronome = document.getElementById("metronome");
 const wildcardSelectedOption = bpmSelect.querySelector("#empty");
 
 export let isMetronome = false;

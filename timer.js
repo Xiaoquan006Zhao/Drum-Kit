@@ -17,6 +17,10 @@ let hours = 0;
 let metronomeInterval = undefined;
 let metronomeMiliseconds = 0;
 
+const bpmInput = document.querySelector("#bpm-input");
+const bpmSelect = document.getElementById("bpm-select");
+const toggleMetronomeButton = document.querySelector("#start-metronome");
+
 export function startTimer() {
   stopTimer();
   recordIntervalId = setInterval(updateTimer, 10);
@@ -24,15 +28,24 @@ export function startTimer() {
   if (isMetronome) {
     playMetronme();
     metronomeInterval = (60 / bpm) * 1000;
+
+    bpmInput.disabled = true;
+    bpmSelect.disabled = true;
+    toggleMetronomeButton.disabled = true;
   }
 }
 
 export function stopTimer() {
   clearInterval(recordIntervalId);
+  metronomeMiliseconds = 0;
   milliseconds = 0;
   seconds = 0;
   minutes = 0;
   hours = 0;
+
+  bpmInput.disabled = false;
+  bpmSelect.disabled = false;
+  toggleMetronomeButton.disabled = false;
   updateDOM();
 }
 
